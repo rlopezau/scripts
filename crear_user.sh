@@ -1,11 +1,16 @@
 #!/bin/bash
+function usage(){
+    echo "Usage ${0}"
+    echo
+    echo "Has de ser root"
+    echo "L'usuari no es pot repetir"
+    exit 1
+}
+
 
 if [[ ${UID} -ne 0 ]]
 then
-    echo "Usage ${UID}"
-    echo
-    echo "Has de ser root"
-    exit 1
+    usage
 fi
 
 read -p "Introdueix el nom d'usuari: " USER_NAME
