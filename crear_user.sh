@@ -13,6 +13,18 @@ then
     usage
 fi
 
+read -p "Introdueix el nom complet: " COMMENTS
+
 read -p "Introdueix el nom d'usuari: " USER_NAME
 
-echo "Creant l'usuari ${USER_NAME}"
+read -p "Introdueix el password: " PASSWORD
+
+useradd -m -c "${COMMENTS}" ${USER_NAME} &> /dev/null
+
+if [[ ${?} -ne 0 ]]
+then
+    echo "Error al crear l'usuari"
+    exit 1
+fi
+
+exit 0
