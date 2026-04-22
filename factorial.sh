@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [ $# -eq 0 ]; then
-echo "Has de posar un paràmetre com a mínim"
+N=$1
+if [ $N -gt 25 ]; then
+    echo "No es pot fer el factorial de valors majors a 25"
     exit 1
 fi
 
-N=$1
 FACTORIAL=1
 
 while [ $N -gt 0 ]; do
